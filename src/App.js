@@ -1,0 +1,24 @@
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import './App.scss';
+
+import Nav from './components/Nav'
+import Home from './components/Pages/Home'
+import Error from './components/Pages/Error'
+// import Footer from './components/Footer';
+
+function App() {
+  return (
+    <div className="App">
+      <Nav />
+      <main>
+      <Routes>
+          <Route exact path="/" element={<Home/>}/>
+          <Route path="*" element={<Error/>} />
+      </Routes>
+      </main>
+    </div>
+  );
+}
+
+export default App;
