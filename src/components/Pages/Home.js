@@ -47,10 +47,10 @@ const Home = () => {
         <h1>GitHub GraphQL API and Apollo Client</h1>
         <p>Using React, GitHub GraphQL APi and Apollo Client - Mutations and queries to get and post data to my Github.</p>
 
-        <img style={{maxWidth: 150}} src={data.user.avatarUrl}/>
+        <img style={{maxWidth: 150}} src={data.user.avatarUrl} alt="github avatar"/>
         <p>{data.user.name} - {data.user.url}</p>
         <p>{data.user.bio} - {data.user.location}</p>
-        <a href={data.user.websiteUrl} target="_blank">{data.user.websiteUrl}</a>
+        <a href={data.user.websiteUrl} rel="noreferrer" target="_blank">{data.user.websiteUrl}</a>
         
         <div>
           <button style={{margin: 20, padding: 20, backgroundColor: 'navy', color: 'white'}} onClick={createRepo}>Create new repo</button>
