@@ -1,5 +1,5 @@
-# My React Boilerplate Starter ====
-Has Scss and React Router DOM and basic Components set up.
+# My React Apollo GraphQL Github project ====
+Playing around with Githubs GraphQL mutations and queries.
 
 
 # Getting Started with Create React App
