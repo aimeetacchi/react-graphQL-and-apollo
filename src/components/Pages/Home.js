@@ -41,16 +41,39 @@ const Home = () => {
   console.log('Data', data)
   const { edges } = data.user.pinnedItems
 
-
-
   return (
     <div className="home container">
+      <div style={{textAlign: 'center'}}>
         <h1>GitHub GraphQL API and Apollo Client</h1>
+        <p>Using React, GitHub GraphQL APi and Apollo Client - Mutations and queries to get and post data to my Github.</p>
 
-        <div style={{textAlign: 'center'}}>
-          <h2>Pinned GitHub Repos</h2>
+        <img style={{maxWidth: 150}} src={data.user.avatarUrl}/>
+        <p>{data.user.name} - {data.user.url}</p>
+        <p>{data.user.bio} - {data.user.location}</p>
+        <a href={data.user.websiteUrl} target="_blank">{data.user.websiteUrl}</a>
+        
+        <div>
+          <button style={{margin: 20, padding: 20, backgroundColor: 'navy', color: 'white'}} onClick={createRepo}>Create new repo</button>
+          <button style={{margin: 20, padding: 20, backgroundColor: 'navy', color: 'white'}}  onClick={updateGitHubStatus}>Update GitHub Status</button>
+        </div>
+
+      </div>
+      <div style={{textAlign: 'center'}}>
+        <h2>Pinned GitHub Repos</h2>
           <div className="row pinned">
-          {edges.map((item, i) => (
+            {edges.map((item, i) => (
+              <div key={i}>
+                {item.node.name && (<h3>{item.node.name}</h3>)}
+                {item.node.description && (<p>{item.node.description}</p>)}
+                <a rel="noreferrer" target="_blank" href={item.node.url}>Link to Repo</a>
+              </div>
+            ))}
+          </div>
+
+        
+          <h2>GitHub Repos</h2>
+          <div className="row repos">
+          {data.user.repositories.edges.map((item, i) => (
             <div key={i}>
               {item.node.name && (<h3>{item.node.name}</h3>)}
               {item.node.description && (<p>{item.node.description}</p>)}
@@ -58,10 +81,7 @@ const Home = () => {
             </div>
           ))}
           </div>
-
-          <button style={{margin: 20, padding: 20, backgroundColor: 'navy', color: 'white'}} onClick={createRepo}>Create new repo</button>
-          <button style={{margin: 20, padding: 20, backgroundColor: 'navy', color: 'white'}}  onClick={updateGitHubStatus}>Update GitHub Status</button>
-        </div>
+      </div>
     </div>
   )
 }
