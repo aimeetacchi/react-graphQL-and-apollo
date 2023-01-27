@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { MyProfile } from "../../gitHubQuery";
 import { CREATE_NEW_REPO } from "../../createRepoMutation";
-import { UPDATE_STATUS } from "../../mutationUpdateStatus";
 import { ADD_STAR_MUTATION } from "../../addStarMutation";
 
 // const newRepodata = {
@@ -13,11 +12,11 @@ import { ADD_STAR_MUTATION } from "../../addStarMutation";
 //   visibility: "PRIVATE",
 // };
 
-const newStatusData = {
-  clientMutationId: process.env.REACT_APP_GITHUB_OWNER_ID,
-  emoji: ":rocket:",
-  message: "this is from my react app",
-};
+// const newStatusData = {
+//   clientMutationId: process.env.REACT_APP_GITHUB_OWNER_ID,
+//   emoji: ":rocket:",
+//   message: "this is from my react app",
+// };
 
 const useMyProfileQuery = (username, limit) => {
   return useQuery(MyProfile, {
